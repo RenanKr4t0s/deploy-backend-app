@@ -13,7 +13,7 @@ class UserService {
           resolve(results);
         });
       });
-      const newUser = new User(results.insertId, name, phone, obs);
+      const newUser = new User(results);
       return newUser;
     } catch (err) {
       throw err;
@@ -34,7 +34,7 @@ class UserService {
       if (results.affectedRows === 0) {
         throw new Error('User not found');
       }
-      const updatedUser = new User(id, name, phone, obs);
+      const updatedUser = new User(results);
       return updatedUser;
     } catch (err) {
       throw err;
@@ -75,7 +75,7 @@ class UserService {
       if (results.length === 0) {
         throw new Error('User not found');
       }
-      const user = new User(results[0].id, results[0].name, results[0].phone, results[0].obs);
+      const user = {results};
       return user;
     } catch (err) {
       throw err;
@@ -93,7 +93,7 @@ class UserService {
           resolve(results);
         });
       });
-      const users = results.map(row => new User(row.id, row.name, row.phone, row.obs));
+      const users = results.map(row => new User(row));
       return users;
     } catch (err) {
       throw err;

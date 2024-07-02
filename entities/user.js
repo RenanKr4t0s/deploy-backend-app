@@ -1,9 +1,9 @@
 class User {
-    constructor(id, name, phone, obs) {
-      this.id = id;
-      this.name = name;
-      this.phone = phone;
-      this.obs = obs;
+    constructor(user) {
+      this.id = user?.id;
+      this.name = user?.name;
+      this.phone = user?.phone;
+      this.obs = user?.obs;
     }
   }
   
