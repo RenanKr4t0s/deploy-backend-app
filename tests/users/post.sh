@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Digite o ID do usuário:"
-read id
+# echo "Digite o ID do usuário:"
+# read id
 
 echo "Digite o nome do usuário:"
 read name
@@ -14,5 +14,7 @@ read obs
 
 curl -X POST \
   -H "Content-Type: application/json" \
-  -d "{\"id\":\"$id\",\"name\":\"$name\",\"phone\":\"$phone\",\"obs\":\"$obs\"}" \
+  -d "{\"name\":\"$name\",\"phone\":\"$phone\",\"obs\":\"$obs\"}" \
   http://localhost:3000/users
+
+# \"id\":\"$id\",
